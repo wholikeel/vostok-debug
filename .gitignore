@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.vscode
+.venv
+.sconsign.dblite
+__pycache__
+*.obj
+*.import
+*.dll
+*.exp
+*.lib
+*.gdextension

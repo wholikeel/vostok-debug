@@ -1,0 +1,9 @@
+[mod]
+name="Vostok Debug"
+id="vostok-debug"
+version="0.0.1"
+author="Michael LePera"
+url=""
+
+[autoload]
+vostok-debug="res://mods/vostok-debug/DebugTerminal.tscn"

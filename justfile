@@ -37,3 +37,8 @@ build-release:
     {{python-venv}}/Scripts/activate
     scons platform={{scons-platform}} target=template_release
 
+
+clean:
+    rm native-src/*.obj
+    rm native-src/*.import
+    Remove-Item scripts/__pycache__ -Recurse -Force -Confirm:$false

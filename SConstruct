@@ -27,7 +27,7 @@ modtxt = load_mod_txt("mod.txt")
 
 NATIVE_LIB_NAME: Final[str] = "libvostokdebug"
 NATIVE_SOURCE_DIR: Final[str] = "native-src"
-PLUGIN_SOURCE_DIR: Final[str] = os.path.join("mods", modtxt["mod"]["id"])
+PLUGIN_SOURCE_DIR: Final[str] = f"mods/{modtxt["mod"]["id"]}"
 
 
 gdextension = Gdextension(
@@ -74,15 +74,16 @@ else:
 
     library = env.SharedLibrary(out_path, source=sources,)
 
-    for arch in ("x86_32", "x86_64"):
-        gdextension.add_library(
-            env["platform"],
-            env["target"].removeprefix("template_"),
-            arch,
-            out_path
-        )
+    # for arch in ("x86_32", "x86_64"):
+    gdextension.add_library(
+        env["platform"],
+        env["target"].removeprefix("template_"),
+        "x86_64",
+        out_path
+    )
 
 
+env.NoCache(library)
 Default(library)
 
 
@@ -92,6 +93,7 @@ if not os.path.exists(gdextension_path):
     os.makedirs(gdextension_path)
 
 gdextension.write(os.path.join(gdextension_path, "gdexample.gdextension"))
+
 
 
 

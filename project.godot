@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Vostok Debug"
+run/main_scene="res://mods/vostok-debug/DebugTerminal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[native_extensions]
+
+paths=["res://mods/vostok-debug/bin/gdexample.gdextension"]
